@@ -307,3 +307,21 @@ Troubleshooting
 * Continuous reboots after programming: Ensure FLASH_MODE is correct for your
   board (e.g. ESP-WROOM-32 should be DIO). Then perform a `make clean`, rebuild,
   redeploy.
+  
+Recompile
+---------------
+
+```bash
+export ESPIDF=~/Documents/cleber/development/embedded/tools/esp-idf
+cd $ESPIDF
+./install.sh
+source $ESPIDF/export.sh
+make BOARD=GENERIC_OTA
+```
+
+Deploy
+---------------
+```bash
+make erase
+make BOARD=GENERIC_OTA deploy
+```

@@ -177,6 +177,7 @@ PY_EXTMOD_O_BASENAME = \
 	extmod/modutimeq.o \
 	extmod/moduhashlib.o \
 	extmod/moducryptolib.o \
+	extmod/moduecc.o \
 	extmod/modubinascii.o \
 	extmod/virtpin.o \
 	extmod/machine_mem.o \

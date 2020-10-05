@@ -229,6 +229,7 @@ STATIC mp_obj_t ucryptolib_aes_make_new(const mp_obj_type_t *type, size_t n_args
     }
 
     mp_obj_aes_t *o = m_new_obj_var(mp_obj_aes_t, struct ctr_params, !!is_ctr_mode(block_mode));
+
     o->base.type = type;
 
     o->block_mode = block_mode;
