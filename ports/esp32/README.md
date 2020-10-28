@@ -316,6 +316,7 @@ export ESPIDF=~/Documents/cleber/development/embedded/tools/esp-idf
 cd $ESPIDF
 ./install.sh
 source $ESPIDF/export.sh
+cd ~/Documents/cleber/development/embedded/tools/micropython/micropython/ports/esp32
 make BOARD=GENERIC_OTA
 ```
 
