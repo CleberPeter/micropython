@@ -52,7 +52,7 @@ STATIC mp_obj_t ucryptolib_ecdsa_verify(size_t n_args, const mp_obj_t *args)
 {
     bool ret = false;
     mp_obj_ecdsa_t *self = MP_OBJ_TO_PTR(args[0]);
-    unsigned char hash[HASH_SIZE];
+    // unsigned char hash[HASH_SIZE];
 
     mp_buffer_info_t message_info;
     mp_get_buffer_raise(args[1], &message_info, MP_BUFFER_READ);
@@ -60,12 +60,17 @@ STATIC mp_obj_t ucryptolib_ecdsa_verify(size_t n_args, const mp_obj_t *args)
     mp_buffer_info_t signature_info;
     mp_get_buffer_raise(args[2], &signature_info, MP_BUFFER_READ);
 
-    if( mbedtls_sha256_ret( message_info.buf, message_info.len, hash, 0 ) != 0 )
+    /*if( mbedtls_sha256_ret( message_info.buf, message_info.len, hash, 0 ) != 0 )
     {
         mp_raise_ValueError(MP_ERROR_TEXT("cant make sha256"));
+    }*/
+
+    if( message_info.len != 32 )
+    {
+        mp_raise_ValueError(MP_ERROR_TEXT("this data is not hashed of sha256"));
     }
 
-    if( !mbedtls_ecdsa_read_signature( &self->ecdsa, hash, sizeof( hash ), signature_info.buf, signature_info.len ) )
+    if( !mbedtls_ecdsa_read_signature( &self->ecdsa, message_info.buf, message_info.len, signature_info.buf, signature_info.len ) )
     {
         ret = true;
     }
