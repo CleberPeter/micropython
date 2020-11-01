@@ -312,11 +312,11 @@ Recompile
 ---------------
 
 ```bash
-export ESPIDF=~/Documents/cleber/development/embedded/tools/esp-idf
+export ESPIDF=~/Documents/cleber/development/embedded/libraries_frameworks/esp-idf
 cd $ESPIDF
 ./install.sh
 source $ESPIDF/export.sh
-cd ~/Documents/cleber/development/embedded/tools/micropython/micropython/ports/esp32
+cd ~/Documents/cleber/development/embedded/libraries_frameworks/micropython/micropython/ports/esp32
 make BOARD=GENERIC_OTA
 ```
 
